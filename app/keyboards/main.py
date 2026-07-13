@@ -8,7 +8,7 @@ def get_main_menu_keyboard() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     builder.row(
         InlineKeyboardButton(text="📚 Посмотреть каталог", callback_data="catalog"),
-        InlineKeyboardButton(text="📋 Как проходит заказ", callback_data="how_it_works"),
+        InlineKeyboardButton(text="📦 Как оформить заказ", callback_data="how_it_works"),
         InlineKeyboardButton(text="❓ Задать вопрос", callback_data="ask_question"),
     )
     return builder.as_markup()
