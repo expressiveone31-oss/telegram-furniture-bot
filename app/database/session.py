@@ -1,23 +1,18 @@
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase
 
-from app.config import settings
-
 class Base(DeclarativeBase):
     pass
 
 
+DATABASE_URL = "sqlite+aiosqlite:///./data/bot.db"
+
+
 def _normalize_database_url(url: str) -> str:
-    """
-    Railway отдаёт PostgreSQL URL в формате postgresql:// или postgres://.
-    Для async SQLAlchemy нужен postgresql+asyncpg://.
-    """
+    """Normalize a PostgreSQL URL without changing the active SQLite backend."""
     url = url.strip()
     if not url:
-        raise ValueError(
-            "DATABASE_URL задан пустым. Проверьте переменную DATABASE_URL "
-            "в сервисе telegram-furniture-bot на Railway."
-        )
+        raise ValueError("DATABASE_URL задан пустым")
     if url.startswith("postgres://"):
         url = url.replace("postgres://", "postgresql://", 1)
     if url.startswith("postgresql://") and "+asyncpg" not in url:
@@ -26,10 +21,8 @@ def _normalize_database_url(url: str) -> str:
 
 
 def create_engine_and_session():
-    database_url = _normalize_database_url(settings.database_url)
-
     engine = create_async_engine(
-        database_url,
+        DATABASE_URL,
         echo=False,
         pool_pre_ping=True,
     )

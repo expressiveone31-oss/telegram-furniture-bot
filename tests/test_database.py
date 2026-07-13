@@ -5,15 +5,18 @@ from pathlib import Path
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 from sqlalchemy.pool import StaticPool
 
-from app.database.session import Base
-from app.database.session import _normalize_database_url
+from app.database.session import Base, DATABASE_URL, _normalize_database_url
 from app.database.models import Order, Question
 
 
 TEST_DATABASE_URL = "sqlite+aiosqlite:///:memory:"
 
 
-def test_normalize_railway_postgres_url():
+def test_active_application_database_is_sqlite():
+    assert DATABASE_URL == "sqlite+aiosqlite:///./data/bot.db"
+
+
+def test_application_uses_sqlite_database():
     url = "postgresql://user:test-secret@postgres.railway.internal:5432/railway"
 
     assert _normalize_database_url(url) == (
