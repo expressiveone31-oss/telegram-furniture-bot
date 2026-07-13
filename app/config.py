@@ -1,6 +1,4 @@
-import os
 from functools import cached_property
-from typing import Optional
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -33,6 +31,14 @@ class Settings(BaseSettings):
     def validate(self) -> None:
         if not self.bot_token:
             raise ValueError("BOT_TOKEN не задан. Добавьте токен Telegram-бота в переменные окружения.")
+        if not self.database_url.strip():
+            raise ValueError(
+                "DATABASE_URL задан пустым. В Railway укажите полный URL PostgreSQL "
+                "или ссылку ${{Postgres.DATABASE_URL}} в переменных сервиса бота."
+            )
+
+        # Вычисляем свойство при запуске, чтобы сразу проверить формат списка.
+        self.admin_ids
 
 
 def get_settings() -> Settings:

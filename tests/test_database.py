@@ -6,10 +6,24 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sess
 from sqlalchemy.pool import StaticPool
 
 from app.database.session import Base
+from app.database.session import _normalize_database_url
 from app.database.models import Order, Question
 
 
 TEST_DATABASE_URL = "sqlite+aiosqlite:///:memory:"
+
+
+def test_normalize_railway_postgres_url():
+    url = "postgresql://user:test-secret@postgres.railway.internal:5432/railway"
+
+    assert _normalize_database_url(url) == (
+        "postgresql+asyncpg://user:test-secret@postgres.railway.internal:5432/railway"
+    )
+
+
+def test_normalize_empty_database_url():
+    with pytest.raises(ValueError, match="DATABASE_URL задан пустым"):
+        _normalize_database_url("  ")
 
 
 @pytest.fixture(scope="session")

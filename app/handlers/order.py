@@ -39,7 +39,7 @@ from app.services.pricing import calculate_total, format_price
 from app.services.notifications import send_admin_notification
 from app.services.orders import OrderService
 from app.states import OrderForm
-from app.database.session import generate_order_number
+from app.utils.order_numbers import generate_order_number
 from app.database.repositories import get_session
 from app.config import settings
 
