@@ -158,14 +158,16 @@ class TestProductMessages:
         from app.texts.messages import get_price_breakdown_text
         text = get_price_breakdown_text(product)
         assert "Срок доставки:</b> ≈ 45 дней" in text
-        assert "750 ¥" in text
+        assert "850 ¥" in text
         assert "550 ¥" in text
-        assert "200 ¥" in text
-        assert "2 320 ¥" in text
+        assert "300 ¥" in text
+        assert "2 420 ¥" in text
         assert "1 570 ¥" in text
-        assert "30 160 ₽" in text
-        assert "9 750 ₽" in text
+        assert "31 460 ₽" in text
+        assert "11 050 ₽" in text
         assert "20 410 ₽" in text
+        assert "Организация выкупа и доставки" in text
+        assert "Товар + организация выкупа и доставки" in text
         assert "Как происходит оплата" in text
         assert "все товары выкупаются специально под ваш заказ" in text
         assert "при курсе" not in text
@@ -189,14 +191,14 @@ class TestProductMessages:
         from app.texts.messages import get_price_breakdown_text
         cups = get_price_breakdown_text(get_product_by_id("ginori_cups"))
         napkin_holder = get_price_breakdown_text(get_product_by_id("napkin_holder"))
-        assert "406 ¥" in cups
-        assert "5 278 ₽" in cups
+        assert "456 ¥" in cups
+        assert "5 928 ₽" in cups
         assert "1 950 ₽" in cups
-        assert "3 328 ₽" in cups
-        assert "512 ¥" in napkin_holder
-        assert "6 656 ₽" in napkin_holder
+        assert "3 978 ₽" in cups
+        assert "562 ¥" in napkin_holder
+        assert "7 306 ₽" in napkin_holder
         assert "2 600 ₽" in napkin_holder
-        assert "4 056 ₽" in napkin_holder
+        assert "4 706 ₽" in napkin_holder
 
 
 class TestOrderReview:

@@ -99,11 +99,12 @@ def get_price_breakdown_text(product: dict) -> str:
             "",
             f"Стоимость товара с доставкой до склада в Китае — <b>{format_yuan(pricing['supplier_total_cny'])}</b>",
             f"Товар на Taobao — {format_yuan(pricing['taobao_price_cny'])}",
-            "Комиссия за выкуп и доставку до склада — "
+            "Организация выкупа и доставки — "
             f"{format_yuan(pricing['purchase_and_china_delivery_fee_cny'])}",
             "",
             f"Стоимость с доставкой до Москвы — <b>{format_yuan(pricing['moscow_total_cny'])}</b>",
-            f"Товар + комиссия — {format_yuan(pricing['supplier_total_cny'])}",
+            "Товар + организация выкупа и доставки — "
+            f"{format_yuan(pricing['supplier_total_cny'])}",
             f"Международная доставка — {format_yuan(pricing['international_delivery_cny'])}",
             "",
             f"💵 <b>Итого до склада в Москве — {format_price(pricing['moscow_total_rub'])}</b>",
