@@ -153,21 +153,20 @@ class TestOrderNumber:
 
 
 class TestProductMessages:
-    def test_price_breakdown_text_with_all_prices(self):
-        product = {
-            "name": "Тестовый товар",
-            "full_description": "Описание",
-            "delivery_period": "14 дней",
-            "product_price": 10000,
-            "service_fee": 2000,
-            "delivery_price": 3000,
-        }
+    def test_coffee_table_price_breakdown(self):
+        product = get_product_by_id("coffee_table_from_video")
         from app.texts.messages import get_price_breakdown_text
         text = get_price_breakdown_text(product)
-        assert "10 000 ₽" in text
-        assert "2 000 ₽" in text
-        assert "3 000 ₽" in text
-        assert "15 000 ₽" in text
+        assert "— доставка: ≈ 45 дней" in text
+        assert "750 ¥" in text
+        assert "550 ¥" in text
+        assert "200 ¥" in text
+        assert "2 320 ¥" in text
+        assert "1 570 ¥" in text
+        assert "30 160 ₽" in text
+        assert "при курсе 13 ₽ за юань" in text
+        assert "товар у поставщика: уточняется" not in text
+        assert "комиссия за выкуп и сопровождение: уточняется" not in text
 
     def test_price_breakdown_text_without_prices(self):
         product = {
@@ -182,19 +181,14 @@ class TestProductMessages:
         text = get_price_breakdown_text(product)
         assert "уточняется" in text
 
-    def test_price_breakdown_text_partial_prices(self):
-        product = {
-            "name": "Тестовый товар",
-            "full_description": "Описание",
-            "delivery_period": "14 дней",
-            "product_price": 10000,
-            "service_fee": None,
-            "delivery_price": None,
-        }
+    def test_cups_and_napkin_holder_prices(self):
         from app.texts.messages import get_price_breakdown_text
-        text = get_price_breakdown_text(product)
-        assert "10 000 ₽" in text
-        assert "уточняется" in text
+        cups = get_price_breakdown_text(get_product_by_id("ginori_cups"))
+        napkin_holder = get_price_breakdown_text(get_product_by_id("napkin_holder"))
+        assert "406 ¥" in cups
+        assert "5 278 ₽" in cups
+        assert "512 ¥" in napkin_holder
+        assert "6 656 ₽" in napkin_holder
 
 
 class TestOrderReview:
@@ -210,6 +204,7 @@ class TestOrderReview:
             comment="Доставка к подъезду",
             total_price=15000,
             is_confirmed=True,
+            moscow_total_price=30160,
         )
         assert "Журнальный столик" in text
         assert "80x60" in text
@@ -218,7 +213,9 @@ class TestOrderReview:
         assert "Иван" in text
         assert "+79991234567" in text
         assert "Доставка к подъезду" in text
-        assert "15 000 ₽" in text
+        assert "Стоимость с доставкой до Москвы" in text
+        assert "30 160 ₽" in text
+        assert "до двери" in text
 
     def test_review_without_optional_fields(self):
         from app.texts.messages import get_order_review

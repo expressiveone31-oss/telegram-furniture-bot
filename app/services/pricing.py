@@ -7,6 +7,16 @@ def format_price(value: Optional[int | float]) -> str:
     return f"{int(value):,} ₽".replace(",", " ")
 
 
+def format_yuan(value: int | float) -> str:
+    return f"{int(value):,} ¥".replace(",", " ")
+
+
+def get_moscow_total_rub(product: dict) -> Optional[int]:
+    pricing = product.get("pricing") or {}
+    value = pricing.get("moscow_total_rub")
+    return int(value) if value is not None else None
+
+
 def calculate_total(
     product_price: Optional[int | float] = None,
     service_fee: Optional[int | float] = None,

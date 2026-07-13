@@ -89,6 +89,7 @@ async def send_review_message(callback: CallbackQuery, state: FSMContext):
         comment=data.get("comment"),
         total_price=total,
         is_confirmed=is_confirmed,
+        moscow_total_price=data.get("moscow_total_price"),
         custom_request=data.get("custom_request"),
     )
 
@@ -125,6 +126,7 @@ async def order_start(callback: CallbackQuery, state: FSMContext):
         product_price=product.get("product_price"),
         service_fee=product.get("service_fee"),
         delivery_price=product.get("delivery_price"),
+        moscow_total_price=(product.get("pricing") or {}).get("moscow_total_rub"),
         has_sizes=bool(product.get("dimensions")),
         has_colors=bool(product.get("available_colors")),
         is_custom=product.get("is_custom", False),
@@ -433,6 +435,7 @@ async def handle_comment_text(message: Message, state: FSMContext):
         comment=text,
         total_price=total,
         is_confirmed=is_confirmed,
+        moscow_total_price=data.get("moscow_total_price"),
         custom_request=data.get("custom_request"),
     )
 
