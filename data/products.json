@@ -18,7 +18,6 @@
       "purchase_and_china_delivery_fee_cny": 200,
       "moscow_total_cny": 2320,
       "international_delivery_cny": 1570,
-      "exchange_rate_rub_per_cny": 13,
       "moscow_total_rub": 30160
     },
     "is_custom": false,
@@ -43,7 +42,6 @@
       "purchase_and_china_delivery_fee_cny": 200,
       "moscow_total_cny": 406,
       "international_delivery_cny": 56,
-      "exchange_rate_rub_per_cny": 13,
       "moscow_total_rub": 5278
     },
     "is_custom": false,
@@ -68,7 +66,6 @@
       "purchase_and_china_delivery_fee_cny": 200,
       "moscow_total_cny": 512,
       "international_delivery_cny": 112,
-      "exchange_rate_rub_per_cny": 13,
       "moscow_total_rub": 6656
     },
     "is_custom": false,

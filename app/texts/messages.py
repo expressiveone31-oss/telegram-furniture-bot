@@ -106,7 +106,6 @@ def get_price_breakdown_text(product: dict) -> str:
             f"Международная доставка — {format_yuan(pricing['international_delivery_cny'])}",
             "",
             f"Стоимость в рублях: <b>{format_price(pricing['moscow_total_rub'])}</b>",
-            f"(при курсе {int(pricing['exchange_rate_rub_per_cny'])} ₽ за юань)",
         ])
 
     lines.extend([

@@ -164,7 +164,7 @@ class TestProductMessages:
         assert "2 320 ¥" in text
         assert "1 570 ¥" in text
         assert "30 160 ₽" in text
-        assert "при курсе 13 ₽ за юань" in text
+        assert "при курсе" not in text
         assert "товар у поставщика: уточняется" not in text
         assert "комиссия за выкуп и сопровождение: уточняется" not in text
 
