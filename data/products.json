@@ -1,0 +1,50 @@
+[
+  {
+    "id": "coffee_table_from_video",
+    "name": "Тот самый журнальный столик из видео",
+    "short_description": "Журнальный столик из Китая, показанный в видео.",
+    "full_description": "Тот самый журнальный столик из видео. Актуальные параметры, наличие и окончательная стоимость подтверждаются перед заказом.",
+    "dimensions": [],
+    "materials": [],
+    "available_colors": [],
+    "image": null,
+    "product_price": null,
+    "service_fee": null,
+    "delivery_price": null,
+    "delivery_period": "приблизительно полтора месяца",
+    "is_custom": false,
+    "is_active": true
+  },
+  {
+    "id": "ginori_cups",
+    "name": "Чашки Ginori",
+    "short_description": "Декоративные чашки Ginori из Китая.",
+    "full_description": "Перед заказом необходимо подтвердить доступные модели, комплектацию, наличие и итоговую стоимость.",
+    "dimensions": [],
+    "materials": ["фарфор"],
+    "available_colors": [],
+    "image": null,
+    "product_price": null,
+    "service_fee": null,
+    "delivery_price": null,
+    "delivery_period": "приблизительно полтора месяца",
+    "is_custom": false,
+    "is_active": true
+  },
+  {
+    "id": "napkin_holder",
+    "name": "Салфетница",
+    "short_description": "Декоративная салфетница из Китая.",
+    "full_description": "Актуальный вариант, наличие и итоговая стоимость подтверждаются перед заказом.",
+    "dimensions": [],
+    "materials": [],
+    "available_colors": [],
+    "image": null,
+    "product_price": null,
+    "service_fee": null,
+    "delivery_price": null,
+    "delivery_period": "приблизительно полтора месяца",
+    "is_custom": false,
+    "is_active": true
+  }
+]

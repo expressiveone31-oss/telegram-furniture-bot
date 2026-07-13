@@ -1,0 +1,27 @@
+from app.texts.messages import *
+
+__all__ = [
+    "WELCOME",
+    "HOW_IT_WORKS",
+    "ASK_QUESTION_PROMPT",
+    "QUESTION_CONFIRMED",
+    "HELP_TEXT",
+    "CUSTOM_PRODUCT_PROMPT",
+    "ORDER_SIZE_PROMPT",
+    "ORDER_COLOR_PROMPT",
+    "ORDER_CITY_PROMPT",
+    "ORDER_NAME_PROMPT",
+    "ORDER_CONTACT_PROMPT",
+    "ORDER_COMMENT_PROMPT",
+    "CUSTOM_SIZE_PROMPT",
+    "CUSTOM_COLOR_PROMPT",
+    "get_product_card",
+    "get_price_breakdown_text",
+    "get_order_review",
+    "ORDER_CONFIRMED_TEXT",
+    "CANCEL_TEXT",
+    "ERROR_TEXT",
+    "CANCEL_ORDER_BUTTON",
+    "BACK_TO_MENU",
+    "BACK_TO_CATALOG",
+]
