@@ -3,7 +3,7 @@
     "id": "coffee_table_from_video",
     "name": "Тот самый журнальный столик из видео",
     "short_description": "Журнальный столик из Китая, показанный в видео.",
-    "full_description": "Тот самый журнальный столик из видео. Актуальные параметры, наличие и окончательная стоимость подтверждаются перед заказом.",
+    "full_description": "Цена указана с доставкой до склада в Москве. Доставка по России до вашего адреса рассчитывается отдельно.",
     "dimensions": [],
     "materials": [],
     "available_colors": [],
@@ -18,7 +18,10 @@
       "purchase_and_china_delivery_fee_cny": 200,
       "moscow_total_cny": 2320,
       "international_delivery_cny": 1570,
-      "moscow_total_rub": 30160
+      "moscow_total_rub": 30160,
+      "first_payment_rub": 9750,
+      "second_payment_rub": 20410,
+      "first_payment_description": "Включает стоимость товара и комиссию за выкуп. После получения первого платежа мы сразу оформляем заказ в Китае."
     },
     "is_custom": false,
     "is_active": true
@@ -27,14 +30,14 @@
     "id": "ginori_cups",
     "name": "Чашки Ginori",
     "short_description": "Декоративные чашки Ginori из Китая.",
-    "full_description": "Перед заказом необходимо подтвердить доступные модели, комплектацию, наличие и итоговую стоимость.",
+    "full_description": "Цена указана с доставкой до склада в Москве. Доставка по России до вашего адреса рассчитывается отдельно.",
     "dimensions": [],
     "materials": ["фарфор"],
     "available_colors": [],
     "image": null,
-    "product_price": 4550,
+    "product_price": 1950,
     "service_fee": 0,
-    "delivery_price": 728,
+    "delivery_price": 3328,
     "delivery_period": "≈ 45 дней",
     "pricing": {
       "supplier_total_cny": 350,
@@ -42,7 +45,10 @@
       "purchase_and_china_delivery_fee_cny": 200,
       "moscow_total_cny": 406,
       "international_delivery_cny": 56,
-      "moscow_total_rub": 5278
+      "moscow_total_rub": 5278,
+      "first_payment_rub": 1950,
+      "second_payment_rub": 3328,
+      "first_payment_description": "Включает стоимость товара. После получения первого платежа мы сразу оформляем заказ в Китае."
     },
     "is_custom": false,
     "is_active": true
@@ -51,14 +57,14 @@
     "id": "napkin_holder",
     "name": "Салфетница",
     "short_description": "Декоративная салфетница из Китая.",
-    "full_description": "Актуальный вариант, наличие и итоговая стоимость подтверждаются перед заказом.",
+    "full_description": "Цена указана с доставкой до склада в Москве. Доставка по России до вашего адреса рассчитывается отдельно.",
     "dimensions": [],
     "materials": [],
     "available_colors": [],
     "image": null,
-    "product_price": 5200,
+    "product_price": 2600,
     "service_fee": 0,
-    "delivery_price": 1456,
+    "delivery_price": 4056,
     "delivery_period": "≈ 45 дней",
     "pricing": {
       "supplier_total_cny": 400,
@@ -66,7 +72,10 @@
       "purchase_and_china_delivery_fee_cny": 200,
       "moscow_total_cny": 512,
       "international_delivery_cny": 112,
-      "moscow_total_rub": 6656
+      "moscow_total_rub": 6656,
+      "first_payment_rub": 2600,
+      "second_payment_rub": 4056,
+      "first_payment_description": "Включает стоимость товара. После получения первого платежа мы сразу оформляем заказ в Китае."
     },
     "is_custom": false,
     "is_active": true

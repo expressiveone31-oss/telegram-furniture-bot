@@ -73,7 +73,8 @@ def get_product_card(product: dict) -> str:
 
     if product.get("materials"):
         lines.append("")
-        lines.append(f"<b>Материалы:</b> {', '.join(product['materials'])}")
+        label = "Материал" if len(product["materials"]) == 1 else "Материалы"
+        lines.append(f"<b>{label}:</b> {', '.join(product['materials'])}")
 
     if product.get("available_colors"):
         lines.append("")
@@ -88,29 +89,39 @@ def get_price_breakdown_text(product: dict) -> str:
     from app.services.pricing import format_price, format_yuan
 
     pricing = product.get("pricing") or {}
-    lines = ["💰 <b>Предварительная стоимость:</b>"]
+    lines = ["💰 <b>Стоимость</b>"]
 
     if product.get("delivery_period"):
-        lines.append(f"— доставка: {product['delivery_period']}")
+        lines.extend(["", f"⏳ <b>Срок доставки:</b> {product['delivery_period']}"])
 
     if pricing:
         lines.extend([
             "",
-            f"Стоимость товара с доставкой до склада в Китае: <b>{format_yuan(pricing['supplier_total_cny'])}</b>",
+            f"Стоимость товара с доставкой до склада в Китае — <b>{format_yuan(pricing['supplier_total_cny'])}</b>",
             f"Товар на Taobao — {format_yuan(pricing['taobao_price_cny'])}",
             "Комиссия за выкуп и доставку до склада — "
             f"{format_yuan(pricing['purchase_and_china_delivery_fee_cny'])}",
             "",
-            f"Стоимость с доставкой до Москвы: <b>{format_yuan(pricing['moscow_total_cny'])}</b>",
+            f"Стоимость с доставкой до Москвы — <b>{format_yuan(pricing['moscow_total_cny'])}</b>",
             f"Товар + комиссия — {format_yuan(pricing['supplier_total_cny'])}",
             f"Международная доставка — {format_yuan(pricing['international_delivery_cny'])}",
             "",
-            f"Стоимость в рублях: <b>{format_price(pricing['moscow_total_rub'])}</b>",
+            f"💵 <b>Итого до склада в Москве — {format_price(pricing['moscow_total_rub'])}</b>",
+            "",
+            "💳 <b>Как происходит оплата</b>",
+            "",
+            f"Первый платеж — <b>{format_price(pricing['first_payment_rub'])}</b>",
+            pricing["first_payment_description"],
+            "",
+            f"Второй платеж — <b>{format_price(pricing['second_payment_rub'])}</b>",
+            "Оплачивается после поступления товара в Москву.",
         ])
 
     lines.extend([
         "",
-        "ℹ️ Стоимость включает доставку до склада в Москве. Доставка от склада «до двери» оплачивается отдельно после получения груза в Москве.",
+        "ℹ️ Стоимость доставки по России зависит от вашего города и рассчитывается после поступления товара в Москву.",
+        "",
+        "🤍 <b>Важно:</b> все товары выкупаются специально под ваш заказ. Перед выкупом мы подтверждаем актуальную стоимость товара на Taobao и после вашего согласования сразу оформляем заказ.",
     ])
 
     return "\n".join(lines)
@@ -127,6 +138,8 @@ def get_order_review(
     total_price: int | None,
     is_confirmed: bool,
     moscow_total_price: int | None = None,
+    first_payment_price: int | None = None,
+    second_payment_price: int | None = None,
     custom_request: str | None = None,
 ) -> str:
     from app.services.pricing import format_price
@@ -158,6 +171,10 @@ def get_order_review(
         lines.append(
             f"💰 <b>Стоимость с доставкой до Москвы:</b> {format_price(moscow_total_price)}"
         )
+        if first_payment_price is not None:
+            lines.append(f"<b>Первый платеж:</b> {format_price(first_payment_price)}")
+        if second_payment_price is not None:
+            lines.append(f"<b>Второй платеж:</b> {format_price(second_payment_price)}")
     else:
         lines.append("💰 <b>Предварительная стоимость:</b> будет рассчитана после уточнения")
 

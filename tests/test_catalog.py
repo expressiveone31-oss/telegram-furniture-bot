@@ -157,13 +157,17 @@ class TestProductMessages:
         product = get_product_by_id("coffee_table_from_video")
         from app.texts.messages import get_price_breakdown_text
         text = get_price_breakdown_text(product)
-        assert "— доставка: ≈ 45 дней" in text
+        assert "Срок доставки:</b> ≈ 45 дней" in text
         assert "750 ¥" in text
         assert "550 ¥" in text
         assert "200 ¥" in text
         assert "2 320 ¥" in text
         assert "1 570 ¥" in text
         assert "30 160 ₽" in text
+        assert "9 750 ₽" in text
+        assert "20 410 ₽" in text
+        assert "Как происходит оплата" in text
+        assert "все товары выкупаются специально под ваш заказ" in text
         assert "при курсе" not in text
         assert "товар у поставщика: уточняется" not in text
         assert "комиссия за выкуп и сопровождение: уточняется" not in text
@@ -187,8 +191,12 @@ class TestProductMessages:
         napkin_holder = get_price_breakdown_text(get_product_by_id("napkin_holder"))
         assert "406 ¥" in cups
         assert "5 278 ₽" in cups
+        assert "1 950 ₽" in cups
+        assert "3 328 ₽" in cups
         assert "512 ¥" in napkin_holder
         assert "6 656 ₽" in napkin_holder
+        assert "2 600 ₽" in napkin_holder
+        assert "4 056 ₽" in napkin_holder
 
 
 class TestOrderReview:

@@ -89,6 +89,8 @@ async def show_product(callback: CallbackQuery, state: FSMContext):
         service_fee=product.get("service_fee"),
         delivery_price=product.get("delivery_price"),
         moscow_total_price=(product.get("pricing") or {}).get("moscow_total_rub"),
+        first_payment_price=(product.get("pricing") or {}).get("first_payment_rub"),
+        second_payment_price=(product.get("pricing") or {}).get("second_payment_rub"),
         has_sizes=bool(product.get("dimensions")),
         has_colors=bool(product.get("available_colors")),
         is_custom=product.get("is_custom", False),
