@@ -6,7 +6,6 @@ requires-python = ">=3.11"
 dependencies = [
     "aiogram>=3.13.1",
     "sqlalchemy[asyncio]>=2.0.35",
-    "asyncpg>=0.30.0",
     "aiosqlite>=0.20.0",
     "pydantic-settings>=2.5.2",
     "python-dotenv>=1.0.1",

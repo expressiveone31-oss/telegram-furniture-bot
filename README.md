@@ -7,8 +7,7 @@ Telegram-бот для обработки заявок от клиентов, к
 - **Python 3.11+**
 - **aiogram 3** — асинхронный фреймворк для Telegram Bot API
 - **SQLAlchemy 2** с async — работа с базой данных
-- **SQLite** — для локальной разработки
-- **PostgreSQL** — для размещения на Railway
+- **SQLite** — база данных
 - **Docker** — контейнеризация
 - **Railway** — хостинг
 
@@ -32,7 +31,6 @@ Telegram-бот для обработки заявок от клиентов, к
 BOT_TOKEN=ВАШ_ТОКЕН_ОТ_BOTFATHER
 ADMIN_TELEGRAM_IDS=123456789
 MANAGER_URL=https://t.me/your_username
-DATABASE_URL=sqlite+aiosqlite:///./data/bot.db
 LOG_LEVEL=INFO
 ```
 
@@ -252,12 +250,7 @@ sqlite> .exit
 2. Нажмите **New Project** → **Deploy from GitHub repo**
 3. Подключите свой репозиторий
 
-### Шаг 3: Добавление PostgreSQL
-
-1. В проекте нажмите **Add New** → **Database** → **PostgreSQL**
-2. Railway автоматически создаст переменную `DATABASE_URL`
-
-### Шаг 4: Добавление переменных окружения
+### Шаг 3: Добавление переменных окружения
 
 В разделе **Variables** добавьте:
 
@@ -267,9 +260,8 @@ sqlite> .exit
 | ADMIN_TELEGRAM_IDS | Ваш Telegram ID (число) |
 | MANAGER_URL | Ссылка на менеджера |
 | LOG_LEVEL | INFO |
-| DATABASE_URL | Будет подставлен автоматически из PostgreSQL |
 
-### Шаг 5: Деплой
+### Шаг 4: Деплой
 
 1. Railway автоматически запустит деплой при пуше в main
 2. После завершения в логах будет:
@@ -278,7 +270,7 @@ sqlite> .exit
    Бот готов к работе!
    ```
 
-### Шаг 6: Проверка
+### Шаг 5: Проверка
 
 1. Откройте бота в Telegram
 2. Отправьте `/start`
@@ -288,7 +280,7 @@ sqlite> .exit
 ### Важно про Railway
 
 - **Не загружайте `.env` в GitHub** — секреты добавляются только в Variables
-- **SQLite без Volume теряет данные** при перезапуске — используйте PostgreSQL
+- **SQLite без Volume может потерять данные** при перезапуске или новом деплое
 - Бот работает как **worker-процесс** через long polling
 - Railway автоматически перезапускает процесс при падении
 
@@ -352,7 +344,7 @@ telegram-furniture-bot/
 - ✅ Вопросы от клиентов
 - ✅ Deep links для Instagram
 - ✅ Локальный запуск (SQLite)
-- ✅ Размещение на Railway (PostgreSQL)
+- ✅ Размещение на Railway с SQLite
 - ✅ Тесты
 
 **Не реализовано в MVP:**

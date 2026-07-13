@@ -23,13 +23,6 @@ class TestConfig:
         content = env_file.read_text()
         assert "MANAGER_URL=" in content
 
-    def test_env_example_has_database_url(self):
-        env_file = Path(__file__).parent.parent / ".env.example"
-        content = env_file.read_text()
-        assert "DATABASE_URL=" in content
-        assert "sqlite" in content
-
-
 class TestProductsJson:
     def test_products_json_exists(self):
         products_file = Path(__file__).parent.parent / "data" / "products.json"

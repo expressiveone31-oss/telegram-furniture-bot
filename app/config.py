@@ -5,12 +5,15 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
 
     bot_token: str = Field(default="", validation_alias="BOT_TOKEN")
     admin_telegram_ids: str = Field(default="", validation_alias="ADMIN_TELEGRAM_IDS")
     manager_url: str = Field(default="", validation_alias="MANAGER_URL")
-    database_url: str = Field(default="", validation_alias="DATABASE_URL")
     log_level: str = Field(default="INFO", validation_alias="LOG_LEVEL")
 
     @cached_property
