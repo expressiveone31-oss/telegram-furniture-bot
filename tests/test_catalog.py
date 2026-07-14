@@ -158,16 +158,16 @@ class TestProductMessages:
         from app.texts.messages import get_price_breakdown_text
         text = get_price_breakdown_text(product)
         assert "Срок доставки:</b> ≈ 45 дней" in text
-        assert "850 ¥" in text
-        assert "550 ¥" in text
+        assert "759 ¥" in text
+        assert "459 ¥" in text
         assert "300 ¥" in text
-        assert "2 420 ¥" in text
+        assert "2 329 ¥" in text
         assert "1 570 ¥" in text
-        assert "31 460 ₽" in text
-        assert "11 050 ₽" in text
+        assert "30 300 ₽" in text
+        assert "9 890 ₽" in text
         assert "20 410 ₽" in text
         assert "Организация выкупа и доставки" in text
-        assert "Товар + организация выкупа и доставки" in text
+        assert "Товар + организация выкупа и доставки" not in text
         assert "Как происходит оплата" in text
         assert "все товары выкупаются специально под ваш заказ" in text
         assert "при курсе" not in text
