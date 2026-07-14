@@ -11,7 +11,7 @@
     "product_price": 9890,
     "service_fee": 0,
     "delivery_price": 20410,
-    "delivery_period": "≈ 45 дней",
+    "delivery_period": "≈ 45–65 дней",
     "pricing": {
       "supplier_total_cny": 759,
       "taobao_price_cny": 459,
@@ -38,7 +38,7 @@
     "product_price": 1950,
     "service_fee": 0,
     "delivery_price": 3978,
-    "delivery_period": "≈ 45 дней",
+    "delivery_period": "≈ 45–65 дней",
     "pricing": {
       "supplier_total_cny": 400,
       "taobao_price_cny": 150,
@@ -65,7 +65,7 @@
     "product_price": 2600,
     "service_fee": 0,
     "delivery_price": 4706,
-    "delivery_period": "≈ 45 дней",
+    "delivery_period": "≈ 45–65 дней",
     "pricing": {
       "supplier_total_cny": 450,
       "taobao_price_cny": 200,

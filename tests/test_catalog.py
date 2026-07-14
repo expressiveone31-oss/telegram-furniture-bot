@@ -157,7 +157,7 @@ class TestProductMessages:
         product = get_product_by_id("coffee_table_from_video")
         from app.texts.messages import get_price_breakdown_text
         text = get_price_breakdown_text(product)
-        assert "Срок доставки:</b> ≈ 45 дней" in text
+        assert "Срок доставки:</b> ≈ 45–65 дней" in text
         assert "759 ¥" in text
         assert "459 ¥" in text
         assert "300 ¥" in text
